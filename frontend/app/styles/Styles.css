@@ -1,0 +1,43 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+  width:100%;
+}
+
+body {
+  background:#030027;
+}
+
+/*.container {
+    display: flex;
+    flex-flow:column nowrap;
+    align-items: center;
+}*/
+
+.main-container {
+  background:#f2f3d9;
+  width:40%;
+  height:90vh;
+  box-shadow: 10px 15px 10px 5px #404a71;
+  margin:0 auto;
+}
+
+.header-container {
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-around;
+  text-align:center;
+}
+
+.footer-container {
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-around;
+  text-align:center;
+}
+
+/* Recommendations */
+.rec-img {
+  width:75%;
+  margin:0 auto;
+}

@@ -7,7 +7,7 @@ import Events from '../components/Events';
 const EventsContainer = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="main-container">
         <Header parentComponent="saved" />
         <div>
           <Link to="/songs">

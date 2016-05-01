@@ -5,7 +5,7 @@ import Footer from '../containers/Footer';
 const DetailsContainer = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="main-container">
         <Header parentComponent="details"/>
         <div>
           <img src="http://pbs.twimg.com/media/CUSlMCDUcAA-wu7.jpg:thumb" />

@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 const SignUp = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="main-container">
         This is SignIn.
         <Link to="/recommendations">
           <button>Click</button>

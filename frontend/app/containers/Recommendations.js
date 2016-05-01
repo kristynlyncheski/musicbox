@@ -5,9 +5,9 @@ import Footer from '../containers/Footer';
 const Recommendations = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="main-container">
         <Header parentComponent="recommendations"/>
-        <div>
+        <div className="rec-img">
           <img src="http://pbs.twimg.com/media/CUfeeoDWUAA-Q_N.jpg" />
         </div>
         <Footer parentComponent="recommendations" />

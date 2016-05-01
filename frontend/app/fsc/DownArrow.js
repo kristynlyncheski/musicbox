@@ -1,10 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router';
+var FontAwesome = require('react-fontawesome');
 
 function DownArrow(props){
   return(
     <Link to="/details">
-      <h1>DOWN</h1>
+      <FontAwesome
+        name='angle-down'
+        size='3x'
+      />
     </Link>
   )
 };

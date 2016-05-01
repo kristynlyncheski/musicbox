@@ -8,17 +8,19 @@ const Header = React.createClass({
       return;
     } else if (this.props.parentComponent == "recommendations") {
       return(
-        <div>
+        <div className="footer-container">
           <div>X</div>
-          <div>All of the Lights</div>
-          <div>Kanye West</div>
-          <DownArrow />
+          <div className="rec-details-container">
+            <div>All of the Lights</div>
+            <div>Kanye West</div>
+            <DownArrow />
+          </div>
           <div>+</div>
         </div>
       );
     } else if (this.props.parentComponent == "details" || this.props.parentComponent == "saved") {
       return(
-        <div>
+        <div className="footer-container">
           <div>X</div>
           <div>+</div>
         </div>

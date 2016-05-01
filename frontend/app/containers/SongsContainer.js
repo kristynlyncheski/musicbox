@@ -7,7 +7,7 @@ import Songs from '../components/Songs';
 const SongsContainer = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="main-container">
         <Header parentComponent="saved" />
         <div>
           <Link to="/songs">

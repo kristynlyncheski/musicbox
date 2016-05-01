@@ -9,15 +9,15 @@ const Header = React.createClass({
   handleHeader: function() {
     if (this.props.parentComponent == "settings") {
       return(
-        <div>
-          <div>EMPTY</div>
+        <div className="header-container">
+          <div></div>
           <SettingsBtn />
           <MusicBtn />
         </div>
       );
     } else if (this.props.parentComponent == "recommendations") {
       return(
-        <div>
+        <div className="header-container">
           <SettingsBtn />
           <Title />
           <SavedBtn />
@@ -25,16 +25,16 @@ const Header = React.createClass({
       );
     } else if (this.props.parentComponent == "details") {
       return(
-        <div>
+        <div className="header-container">
           <UpArrow />
         </div>
       );
     } else if (this.props.parentComponent == "saved") {
       return(
-        <div>
+        <div className="header-container">
           <MusicBtn />
           <SavedBtn />
-          <div>EMPTY</div>
+          <div></div>
         </div>
       );
     } else {

@@ -1,9 +1,11 @@
 import React from 'react';
+require('../styles/Styles.css');
+
 
 const Main = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="container">
         {this.props.children}
       </div>
     )

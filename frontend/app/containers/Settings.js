@@ -5,7 +5,7 @@ import Footer from '../containers/Footer';
 const Settings = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="main-container">
         <Header parentComponent="settings" />
         This is Settings
         <Footer parentComponent="settings" />
