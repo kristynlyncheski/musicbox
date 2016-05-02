@@ -3,8 +3,12 @@ import {Link} from 'react-router';
 import Header from '../containers/Header';
 import Footer from '../containers/Footer';
 import Songs from '../components/Songs';
+import LoginMain from '../utils/LoginMain.js';
 
 const SongsContainer = React.createClass({
+  componentDidMount: function(){
+    LoginMain.getAccessToken();
+  },
   render: function(){
     return(
       <div className="main-container">
