@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 var FontAwesome = require('react-fontawesome');
-import DownArrow from "../fsc/DownArrow";
+// import DownArrow from "../fsc/DownArrow";
 import Recommendations from "../containers/Recommendations";
 
 const Header = React.createClass({
@@ -18,7 +18,6 @@ const Header = React.createClass({
               onClick={this.props.handleSkip}
             />
           </div>
-          <DownArrow />
           <div>
             <FontAwesome
               name='plus'

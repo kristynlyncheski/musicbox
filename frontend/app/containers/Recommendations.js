@@ -1,8 +1,10 @@
 import React from 'react';
-import Header from '../containers/Header';
-import Footer from '../containers/Footer';
+import Header from './Header';
+import Footer from './Footer';
 // import LoginMain from '../utils/LoginMain';
-import RecommendedCard from '../components/RecommendedCard';
+import RecComp from '../components/RecComp';
+// import RecommendedCard from '../components/RecommendedCard';
+// import DetailsContainer from './DetailsContainer';
 
 const Recommendations = React.createClass({
   getInitialState: function(){
@@ -71,6 +73,10 @@ const Recommendations = React.createClass({
     this.setState({
       recommendedSongs:tracklist
     });
+    if (this.state.recommendedSongs.tracks.length < 1){
+      this.recommendAjax();
+    };
+    //this will need to call the db to save the info
   },
   handleSkip: function(){
     let tracklist = this.state.recommendedSongs;
@@ -79,13 +85,33 @@ const Recommendations = React.createClass({
     this.setState({
       recommendedSongs:tracklist
     });
+    if (this.state.recommendedSongs.tracks.length < 1){
+      this.recommendAjax();
+    };
+    //this will need to call the db to save the info
   },
-
+  // showSongs: function(){
+  //   return(
+  //     <RecommendedCard tracks={this.state.recommendedSongs} />
+  //   )
+  // },
+  // showDetails: function(){
+  //   let tracklist = this.state.recommendedSongs;
+  //   console.log(tracklist.tracks[0]);
+  //   return (
+  //     <DetailsContainer />
+  //   )
+  // },
   render: function(){
     return(
       <div className="main-container">
-        <Header parentComponent="recommendations" />
-        <RecommendedCard tracks={this.state.recommendedSongs} />
+        <Header
+          parentComponent="recommendations"
+          showSongs={this.showSongs}
+         />
+         <RecComp
+           tracks={this.state.recommendedSongs}
+         />
         <Footer
           parentComponent="recommendations"
           tracks={this.state.recommendedSongs}
@@ -98,7 +124,3 @@ const Recommendations = React.createClass({
 });
 
 export default Recommendations;
-//
-// <div className="rec-img">
-//   <img src="http://pbs.twimg.com/media/CUfeeoDWUAA-Q_N.jpg" />
-// </div>

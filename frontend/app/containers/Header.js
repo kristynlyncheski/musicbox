@@ -3,7 +3,7 @@ import Title from '../fsc/Title';
 import MusicBtn from '../fsc/MusicBtn';
 import SettingsBtn from '../fsc/SettingsBtn';
 import SavedBtn from '../fsc/SavedBtn';
-import UpArrow from '../fsc/UpArrow';
+// import UpArrow from '../fsc/UpArrow';
 
 const Header = React.createClass({
   handleHeader: function() {
@@ -23,12 +23,12 @@ const Header = React.createClass({
           <SavedBtn />
         </div>
       );
-    } else if (this.props.parentComponent == "details") {
-      return(
-        <div className="header-container">
-          <UpArrow />
-        </div>
-      );
+    // } else if (this.props.parentComponent == "details") {
+    //   return(
+    //     <div className="header-container">
+    //       <UpArrow />
+    //     </div>
+    //   );
     } else if (this.props.parentComponent == "saved") {
       return(
         <div className="header-container">

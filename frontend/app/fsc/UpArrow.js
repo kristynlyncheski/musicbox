@@ -8,6 +8,7 @@ function UpArrow(props){
       <FontAwesome
         name='angle-up'
         size='3x'
+        onClick={props.onClick}
       />
     </Link>
   )

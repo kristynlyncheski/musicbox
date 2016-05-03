@@ -14,12 +14,13 @@ const RecommendedCard = React.createClass({
             <img src={track.albumArt} />
           </div>
           <p>{track.songTitle}</p>
-          <p>{track.artistName.toString()}</p>
+          <p>{track.artistName.toString().replace(",",", ")}</p>
         </div>
       )
     });
-    console.log("tracks",tracks)
-    let index = this.state.showingTrack
+    // console.log("tracks",tracks);
+    let index = this.state.showingTrack;
+
     return(
       <div>
         {tracks[index]}
