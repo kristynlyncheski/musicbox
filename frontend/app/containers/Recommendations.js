@@ -9,7 +9,17 @@ import RecComp from '../components/RecComp';
 const Recommendations = React.createClass({
   getInitialState: function(){
     return{
-      recommendedSongs: [],
+      recommendedSongs: [
+        {
+          songTitle: "",
+          songID: "",
+          previewURL: "",
+          albumTitle: "",
+          albumArt: "",
+          artistName: [],
+          artistID: [],
+        }
+      ],
     };
   },
   recommendAjax: function(){
@@ -50,8 +60,9 @@ const Recommendations = React.createClass({
         };
       };
       console.log("savedTracks",savedTracks);
+      // console.log("savedTracks.tracks",savedTracks.tracks);
 
-      that.setState({recommendedSongs: savedTracks});
+      that.setState({recommendedSongs: savedTracks.tracks});
 
     }).fail(function(response){
       console.log("it failed");
@@ -68,27 +79,29 @@ const Recommendations = React.createClass({
 
   handleSave: function(){
     let tracklist = this.state.recommendedSongs;
-    tracklist.tracks.shift();
+    tracklist.shift();
     console.log(tracklist);
     this.setState({
       recommendedSongs:tracklist
     });
-    if (this.state.recommendedSongs.tracks.length < 1){
+    if (this.state.recommendedSongs.length < 1){
       this.recommendAjax();
     };
     //this will need to call the db to save the info
   },
   handleSkip: function(){
     let tracklist = this.state.recommendedSongs;
-    tracklist.tracks.shift();
+    tracklist.shift();
     console.log(tracklist);
     this.setState({
       recommendedSongs:tracklist
     });
-    if (this.state.recommendedSongs.tracks.length < 1){
+    if (this.state.recommendedSongs.length < 1){
       this.recommendAjax();
     };
+
     //this will need to call the db to save the info
+
   },
   // showSongs: function(){
   //   return(

@@ -15,19 +15,19 @@ const DetailsContainer = React.createClass({
     // LoginMain.getAccessToken();
   },
   render: function(){
-    let tracks = this.props.tracks.tracks.map((track,index) => {
+    let tracks = this.props.tracks.map((track,index) => {
 
       // add a preview url on click of play button
 
       return (
         <div key={index}>
-          <div className="rec-img">
+          <div className="details-img">
             <img src={track.albumArt} />
           </div>
           <p>{track.songTitle}</p>
           <p>{track.artistName.toString().replace(",",", ")}</p>
           <p>{track.albumName}</p>
-          <div>
+          <div className="play-btn-img">
             <img src="https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_3-512.png" />
           </div>
         </div>

@@ -13,15 +13,10 @@ const SongsContainer = React.createClass({
     return(
       <div className="main-container">
         <Header parentComponent="saved" />
-        <div>
-          <Link to="/songs">
-            <h3>Songs</h3>
-          </Link>
-          <Link to="/events">
-            <h3>Events</h3>
-          </Link>
+        <div className="inner-containers">
+          <h3>Your Saved Songs</h3>
+          <Songs />
         </div>
-        <Songs />
         <Footer parentComponent="saved" />
       </div>
     )
@@ -29,3 +24,18 @@ const SongsContainer = React.createClass({
 });
 
 export default SongsContainer;
+
+
+// <div className="main-container">
+//   <Header parentComponent="saved" />
+//   <div className="inner-containers">
+//     <Link to="/songs">
+//       <h3>Songs</h3>
+//     </Link>
+//     <Link to="/events">
+//       <h3>Events</h3>
+//     </Link>
+//   </div>
+//   <Songs />
+//   <Footer parentComponent="saved" />
+// </div>

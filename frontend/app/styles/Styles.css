@@ -20,6 +20,7 @@ body {
   height:90vh;
   box-shadow: 10px 15px 10px 5px #404a71;
   margin:0 auto;
+  position:relative;
 }
 
 .header-container {
@@ -27,6 +28,9 @@ body {
   flex-flow:row nowrap;
   justify-content: space-around;
   text-align:center;
+  /*position:absolute;
+  left:0;
+  top:0;*/
 }
 
 .footer-container {
@@ -34,10 +38,22 @@ body {
   flex-flow:row nowrap;
   justify-content: space-around;
   text-align:center;
+  position:absolute;
+  left:0;
+  bottom:0;
 }
 
 /* Recommendations */
 .rec-img {
   width:75%;
   margin:0 auto;
+}
+
+/* Details */
+.details-img {
+  width:30%;
+}
+
+.play-btn-img {
+  width:10%;
 }
