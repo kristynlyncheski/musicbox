@@ -1,7 +1,7 @@
 import Test from './Test';
 
 const RecommendFxns = {
-  ajaxFxns: function(){
+  recommendAjax: function(){
     //these need to be parameters in fxn(tracks,artists)
 
     let tracks = "2ZyuwVvV6Z3XJaXIFbspeE,0H04yVa3DJxoXbLBpAb7iV"
@@ -47,7 +47,7 @@ const RecommendFxns = {
       console.log(response);
     });
 
-  }
+  },
 };
 
 

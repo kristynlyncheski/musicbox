@@ -4,6 +4,11 @@ import Footer from '../containers/Footer';
 // import LoginMain from '../utils/LoginMain.js';
 
 const DetailsContainer = React.createClass({
+  getInitialState: function(){
+    return{
+      parent: 'details',
+    };
+  },
   componentDidMount: function(){
     // LoginMain.getAccessToken();
   },

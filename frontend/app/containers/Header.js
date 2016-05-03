@@ -51,8 +51,3 @@ const Header = React.createClass({
 });
 
 export default Header;
-
-//
-// {this.leftIcon}
-// {this.middleIcon}
-// {this.rightIcon}

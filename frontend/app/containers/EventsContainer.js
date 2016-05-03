@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import Header from '../containers/Header';
-import Footer from '../containers/Footer';
+// import Header from '../containers/Header';
+// import Footer from '../containers/Footer';
 import Events from '../components/Events';
 // import LoginMain from '../utils/LoginMain.js';
 
@@ -11,8 +11,7 @@ const EventsContainer = React.createClass({
   },
   render: function(){
     return(
-      <div className="main-container">
-        <Header parentComponent="saved" />
+      <div>
         <div>
           <Link to="/songs">
             <h3>Songs</h3>
@@ -22,7 +21,6 @@ const EventsContainer = React.createClass({
           </Link>
         </div>
         <Events />
-        <Footer parentComponent="saved" />
       </div>
     )
   }

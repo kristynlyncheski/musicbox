@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 var FontAwesome = require('react-fontawesome');
 import DownArrow from "../fsc/DownArrow";
+import Recommendations from "../containers/Recommendations";
 
 const Header = React.createClass({
   handleFooter: function() {
@@ -14,17 +15,15 @@ const Header = React.createClass({
             <FontAwesome
               name='times'
               size='3x'
+              onClick={this.props.handleSkip}
             />
           </div>
-          <div className="rec-details-container">
-            <div>All of the Lights</div>
-            <div>Kanye West</div>
-            <DownArrow />
-          </div>
+          <DownArrow />
           <div>
             <FontAwesome
               name='plus'
               size='3x'
+              onClick={this.props.handleSave}
             />
           </div>
         </div>
@@ -60,8 +59,3 @@ const Header = React.createClass({
 });
 
 export default Header;
-
-//
-// {this.leftIcon}
-// {this.middleIcon}
-// {this.rightIcon}

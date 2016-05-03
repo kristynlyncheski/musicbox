@@ -4,6 +4,8 @@ import React from 'react';
 import LoginMain from '../utils/LoginMain';
 import UserPrefs from '../utils/UserPrefs';
 import Recommendations from '../containers/Recommendations';
+// import { hashHistory } from 'react-router'
+// hashHistory.push('/recommendations')
 
 const Callback = React.createClass({
   componentDidMount: function(){

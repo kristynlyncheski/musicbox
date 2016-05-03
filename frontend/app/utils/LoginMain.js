@@ -62,7 +62,7 @@ const LoginMain = {
         console.log("userInfo",userInfo);
 
         //This is where user prefs and info are called (from the callback page)
-        UserPrefs.ajaxFxns();
+        // UserPrefs.ajaxFxns();
 
 
         //*** going to have to create a user record if needed to the database
