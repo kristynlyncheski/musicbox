@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../containers/Header';
 import Footer from '../containers/Footer';
-import LoginMain from '../utils/LoginMain.js';
+// import LoginMain from '../utils/LoginMain.js';
 
 const Recommendations = React.createClass({
   componentDidMount: function(){
-    LoginMain.getAccessToken();
+    // LoginMain.getAccessToken();
   },
   render: function(){
     return(
