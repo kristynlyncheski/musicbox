@@ -1,0 +1,41 @@
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: path.join(__dirname, '/app/index.html'),
+  filename: 'index.html',
+  inject: 'body'
+})
+
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+module.exports = {
+  devtool: 'eval',
+  entry: [
+    './app/index.js'
+  ],
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        include: path.join(__dirname, 'app')
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+       test: /(\.scss|\.css)$/,
+       loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox')
+       }
+    ],
+    resolve: {
+      extensions: ['', '.js', '.jsx', '.css', '.scss', '.json']
+    }
+};

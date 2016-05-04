@@ -22,7 +22,7 @@ const DetailsContainer = React.createClass({
       return (
         <div key={index}>
           <div className="details-img">
-            <img src={track.album_art} />
+            <img src={track.img} />
           </div>
           <p>{track.song_title}</p>
           <p>{track.artist_name.toString().replace(",",", ")}</p>

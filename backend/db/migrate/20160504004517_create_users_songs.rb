@@ -7,6 +7,7 @@ class CreateUsersSongs < ActiveRecord::Migration
       t.boolean :selected
       # t.boolean :added_to_playlist
       t.datetime :date_added_to_playlist
+      t.string :playlist_added_to
       t.datetime :created_date
 
       t.timestamps null: false

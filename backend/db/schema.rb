@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160504004517) do
     t.integer  "song_id",                null: false
     t.boolean  "selected"
     t.datetime "date_added_to_playlist"
+    t.string   "playlist_added_to"
     t.datetime "created_date"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false

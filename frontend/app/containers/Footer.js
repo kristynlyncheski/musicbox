@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 var FontAwesome = require('react-fontawesome');
 // import DownArrow from "../fsc/DownArrow";
 import Recommendations from "../containers/Recommendations";
+import {Button, Icon} from 'react-materialize';
+
 
 const Header = React.createClass({
   handleFooter: function() {
@@ -12,18 +14,10 @@ const Header = React.createClass({
       return(
         <div className="footer-container">
           <div>
-            <FontAwesome
-              name='times'
-              size='3x'
-              onClick={this.props.handleSkip}
-            />
+            <Button floating large className='red' waves='light' icon='close' onClick={this.props.handleSkip}/>
           </div>
           <div>
-            <FontAwesome
-              name='plus'
-              size='3x'
-              onClick={this.props.handleSave}
-            />
+            <Button floating large className='red' waves='light' icon='add' onClick={this.props.handleSave}/>
           </div>
         </div>
       );
@@ -31,16 +25,10 @@ const Header = React.createClass({
       return(
         <div className="footer-container">
           <div>
-            <FontAwesome
-              name='times'
-              size='3x'
-            />
+            <Button floating large className='red' waves='light' icon='close' onClick={this.props.handleSkip}/>
           </div>
           <div>
-            <FontAwesome
-              name='plus'
-              size='3x'
-            />
+            <Button floating large className='red' waves='light' icon='close' onClick={this.props.handleSave}/>
           </div>
         </div>
       );
@@ -58,3 +46,14 @@ const Header = React.createClass({
 });
 
 export default Header;
+
+// <FontAwesome
+//   name='times'
+//   size='3x'
+//  onClick={this.props.handleSkip}
+// />
+// <FontAwesome
+//   name='plus'
+//   size='3x'
+//  onClick={this.props.handleSave}
+// />

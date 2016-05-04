@@ -4,6 +4,7 @@ import DetailsContainer from '../containers/DetailsContainer';
 import DownArrow from "../fsc/DownArrow";
 import UpArrow from "../fsc/UpArrow";
 
+
 const RecComp = React.createClass({
   getInitialState:function(){
     return{

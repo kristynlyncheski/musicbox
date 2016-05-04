@@ -2,10 +2,11 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 // import LoginMain from '../utils/LoginMain';
-import RecComp from '../components/RecComp';
-// import RecommendedCard from '../components/RecommendedCard';
+// import RecComp from '../components/RecComp';
+import RecommendedCard from '../components/RecommendedCard';
 // import DetailsContainer from './DetailsContainer';
 import ajaxHelpers from '../utils/ajaxHelpers';
+
 
 
 const Recommendations = React.createClass({
@@ -126,7 +127,7 @@ const Recommendations = React.createClass({
           parentComponent="recommendations"
           showSongs={this.showSongs}
          />
-         <RecComp
+       <RecommendedCard
            tracks={this.state.recommendedSongs}
          />
         <Footer
