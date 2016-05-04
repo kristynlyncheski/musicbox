@@ -7,7 +7,6 @@ import Songs from '../components/Songs';
 
 const SongsContainer = React.createClass({
   componentDidMount: function(){
-    // LoginMain.getAccessToken();
   },
   render: function(){
     return(

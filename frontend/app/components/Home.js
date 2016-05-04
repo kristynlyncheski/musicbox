@@ -8,8 +8,15 @@ import {Link} from 'react-router';
 import LoginMain from '../utils/LoginMain.js';
 
 const Home = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
   componentWillMount: function(){
-    setTimeout(LoginMain.getAccessToken(),1500);
+    let that = this;
+    setTimeout(function(){
+      LoginMain.getAccessToken();
+      that.context.router.push('/recommendations');
+    },1500);
   },
   render: function(){
     return(

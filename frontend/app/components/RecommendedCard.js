@@ -8,13 +8,14 @@ const RecommendedCard = React.createClass({
   },
   render: function(){
     let tracks = this.props.tracks.map((track,index) => {
+
       return (
         <div key={index}>
           <div className="rec-img">
-            <img src={track.albumArt} />
+            <img src={track.img} />
           </div>
-          <p>{track.songTitle}</p>
-          <p>{track.artistName.toString().replace(",",", ")}</p>
+          <p>{track.song_title}</p>
+          <p>{track.artist_name.toString().replace(",",", ")}</p>
         </div>
       )
     });

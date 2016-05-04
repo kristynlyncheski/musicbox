@@ -5,19 +5,21 @@ import Footer from './Footer';
 import RecComp from '../components/RecComp';
 // import RecommendedCard from '../components/RecommendedCard';
 // import DetailsContainer from './DetailsContainer';
+import ajaxHelpers from '../utils/ajaxHelpers';
+
 
 const Recommendations = React.createClass({
   getInitialState: function(){
     return{
       recommendedSongs: [
         {
-          songTitle: "",
-          songID: "",
-          previewURL: "",
-          albumTitle: "",
-          albumArt: "",
-          artistName: [],
-          artistID: [],
+          song_title: "",
+          song_id: "",
+          preview: "",
+          album: "",
+          img: "",
+          artist_name: [],
+          artist_id: [],
         }
       ],
     };
@@ -46,17 +48,17 @@ const Recommendations = React.createClass({
       for (var i = 0; i < response.tracks.length; i++){
         let track = response.tracks[i];
         savedTracks.tracks[i] = {
-          songTitle: track.name,
-          songID: track.id,
-          previewURL: track.preview_url,
-          albumTitle: track.album.name,
-          albumArt: track.album.images[0].url,
-          artistName: [],
-          artistID: [],
+          song_title: track.name,
+          song_id: track.id,
+          preview: track.preview_url,
+          album: track.album.name,
+          img: track.album.images[0].url,
+          artist_name: [],
+          artist_id: [],
         };
         for (var j = 0; j < track.artists.length; j++){
-          savedTracks.tracks[i].artistName.push(track.artists[j].name);
-          savedTracks.tracks[i].artistID.push(track.artists[j].id);
+          savedTracks.tracks[i].artist_name.push(track.artists[j].name);
+          savedTracks.tracks[i].artist_id.push(track.artists[j].id);
         };
       };
       console.log("savedTracks",savedTracks);
@@ -73,23 +75,16 @@ const Recommendations = React.createClass({
 
   },
   componentWillMount: function(){
-    // LoginMain.getAccessToken();
     {this.recommendAjax()}
   },
 
-  handleSave: function(){
-    let tracklist = this.state.recommendedSongs;
-    tracklist.shift();
-    console.log(tracklist);
-    this.setState({
-      recommendedSongs:tracklist
-    });
-    if (this.state.recommendedSongs.length < 1){
-      this.recommendAjax();
-    };
-    //this will need to call the db to save the info
+  handleSave: function(status){
+    this.songAjaxFxn(true);
   },
   handleSkip: function(){
+    this.songAjaxFxn(false);
+  },
+  songAjaxFxn: function(status){
     let tracklist = this.state.recommendedSongs;
     tracklist.shift();
     console.log(tracklist);
@@ -100,21 +95,30 @@ const Recommendations = React.createClass({
       this.recommendAjax();
     };
 
-    //this will need to call the db to save the info
 
+    let track = this.state.recommendedSongs[0];
+    console.log("track",track);
+    let songInfo = {
+      song_title: track.song_title,
+      song_id: track.song_id,
+      preview: track.preview,
+      album: track.album,
+      img: track.img,
+      artist_name: track.artist_name[0],
+      artist_id: track.artist_id[0]
+    };
+
+    console.log("songInfo",songInfo);
+
+    // songInfo["selected"] = status;
+
+    // console.log("songInfo",songInfo);
+
+    ajaxHelpers.addSong(songInfo)
+    .then(function(response){
+      console.log(response);
+    });
   },
-  // showSongs: function(){
-  //   return(
-  //     <RecommendedCard tracks={this.state.recommendedSongs} />
-  //   )
-  // },
-  // showDetails: function(){
-  //   let tracklist = this.state.recommendedSongs;
-  //   console.log(tracklist.tracks[0]);
-  //   return (
-  //     <DetailsContainer />
-  //   )
-  // },
   render: function(){
     return(
       <div className="main-container">

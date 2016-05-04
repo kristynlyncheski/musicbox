@@ -1,15 +1,13 @@
-// is there a way to redirect to recommendations rather than calling the component???
-
 import React from 'react';
 import LoginMain from '../utils/LoginMain';
-import UserPrefs from '../utils/UserPrefs';
-import Recommendations from '../containers/Recommendations';
-// import { hashHistory } from 'react-router'
-// hashHistory.push('/recommendations')
 
 const Callback = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
   componentDidMount: function(){
     LoginMain.checkForToken();
+    this.context.router.push('/recommendations');
   },
   render: function(){
     return(

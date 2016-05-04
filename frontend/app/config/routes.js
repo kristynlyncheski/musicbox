@@ -14,7 +14,7 @@ const routes = (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <IndexRoute component={Home} />
-      <Route path="/callback" component={Callback} />
+      <Route path="/callback" component={Callback} onEnter="" />
       <Route path="/recommendations" component={Recommendations} onEnter={LoginMain.getAccessToken} />
       <Route path="/settings" component={SettingsContainer} onEnter={LoginMain.getAccessToken} />
       <Route path="/songs" component={SongsContainer} onEnter={LoginMain.getAccessToken} />
