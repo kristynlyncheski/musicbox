@@ -1,5 +1,6 @@
-json.users @users do |user|
+json.songsUsers @songsUsers do |songUser|
 
-  json.user_id user.user_id
-
+  json.user_id songUser.user_id
+  json.song_id songUser.song_id
+  
 end

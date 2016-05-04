@@ -16,7 +16,6 @@ const RecommendedCard = React.createClass({
           <Card header={<CardTitle reveal image={track.img} waves='light'/>}
             title={track.song_title}
             reveal={<DetailsContainer tracks={this.props.tracks} />}>
-            <p>{track.song_title}</p>
             <p>{track.artist_name.toString().replace(",",", ")}</p>
           </Card>
         </div>

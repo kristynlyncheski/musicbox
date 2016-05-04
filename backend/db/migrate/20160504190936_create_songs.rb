@@ -14,6 +14,6 @@ class CreateSongs < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :songs, :song_id, :unique => true
-
+    
   end
 end

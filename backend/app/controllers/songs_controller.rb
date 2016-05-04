@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+  
   def index
     @songs = Song.all
   end
@@ -29,9 +29,7 @@ class SongsController < ApplicationController
     )
 
     render 'show', formats: [:json], handlers: [:jbuilder], status: 201
-    
+
   end
-
-
 
 end

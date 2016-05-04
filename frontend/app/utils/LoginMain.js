@@ -38,6 +38,8 @@ const LoginMain = {
     let expiresIn = this.getParameter("expires_in");
     let errorParam = this.getParameter("error");
 
+    let that = this;
+
     if (!errorParam) {
       $.ajax({
         url: 'https://api.spotify.com/v1/me',
@@ -72,7 +74,7 @@ const LoginMain = {
         console.log("userInfo",userInfo);
 
         //This is where user prefs and info are called (from the callback page)
-        // this.UserPrefs();
+        that.getUserPrefs();
 
 
         //*** going to have to create a user record if needed to the database
@@ -107,17 +109,19 @@ const LoginMain = {
       let artistID3 = response.items[2].id;
       artistString = artistID1 + "," + artistID2;
 
-      let userTopArtists = {
-        artists: [],
-      };
-      for (var i = 0; i < response.items.length; i++){
-        userTopArtists.artists[i] = {
-          artistName: response.items[i].name,
-          artistID: response.items[i].id,
-        };
+      let userArtistData = {
+        user_id: localStorage.spotifyUserID,
+        artist_one: artistID1,
+        artist_two: artistID2,
+        artist_three: artistID3
       };
 
-      console.log("userTopArtists",userTopArtists);
+      ajaxHelpers.updateUser(userArtistData)
+      .then(function(response){
+        console.log("response",response);
+      });
+
+
 
 
     }).fail(function(response){
@@ -138,6 +142,9 @@ const LoginMain = {
       console.log("track response 2",response.items[1].id);
       let trackID2 = response.items[1].id;
       trackString = trackID1 + "," + trackID2;
+      let trackID3 = response.items[2].id;
+      console.log("track response 3",response.items[2].id);
+
 
       let userTopSongs = {
         songs: [],

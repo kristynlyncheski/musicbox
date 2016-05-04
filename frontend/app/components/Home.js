@@ -15,7 +15,9 @@ const Home = React.createClass({
     let that = this;
     setTimeout(function(){
       LoginMain.getAccessToken();
-      that.context.router.push('/recommendations');
+      setTimeout(function(){
+        that.context.router.push('/recommendations');
+      },1500);
     },1500);
   },
   render: function(){

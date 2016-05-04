@@ -109,15 +109,24 @@ const Recommendations = React.createClass({
       artist_id: track.artist_id[0]
     };
 
-    console.log("songInfo",songInfo);
-
-    // songInfo["selected"] = status;
-
     // console.log("songInfo",songInfo);
+
+    let songUserInfo = {
+      song_id: track.song_id,
+      user_id: localStorage.spotifyUserID,
+      selected: status,
+    };
+
+    // console.log("songUserInfo",songUserInfo);
+
 
     ajaxHelpers.addSong(songInfo)
     .then(function(response){
       console.log(response);
+      // ajaxHelpers.addJoin(songUserInfo)
+      // .then(function(response){
+      //   console.log(response);
+      // });
     });
   },
   render: function(){

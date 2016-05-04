@@ -1,4 +1,4 @@
-class CreateUsersSongs < ActiveRecord::Migration
+class CreateSongsUsers < ActiveRecord::Migration
   def change
     create_join_table :users, :songs do |t|
 

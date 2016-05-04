@@ -24,7 +24,6 @@ const DetailsContainer = React.createClass({
           <div className="details-img">
             <img src={track.img} />
           </div>
-          <p>{track.song_title}</p>
           <p>{track.artist_name.toString().replace(",",", ")}</p>
           <p>{track.album}</p>
           <div className="play-btn-img">
