@@ -4,8 +4,6 @@ var Router = require('react-router');
 import ajaxHelpers from './ajaxHelpers';
 
 const SCOPES = "user-top-read"
-//user-read-private user-read-email
-
 
 const LoginMain = {
   contextTypes: {
@@ -16,7 +14,6 @@ const LoginMain = {
       window.location = "https://accounts.spotify.com/authorize?client_id=" + KEYS.CLIENT_ID + "&redirect_uri=" + KEYS.REDIRECT_URI + "&scope=" +  encodeURIComponent(SCOPES) + "&response_type=token&state=123";
     } else {
       console.log("got access token from local storage");
-
       // return localStorage.accessToken;
     }
   },
@@ -67,11 +64,10 @@ const LoginMain = {
 
         ajaxHelpers.addUser(userInfo)
         .then(function(response){
-          console.log(response);
+          // console.log(response);
         });
 
-
-        console.log("userInfo",userInfo);
+        // console.log("userInfo",userInfo);
 
         //This is where user prefs and info are called (from the callback page)
         that.getUserPrefs();
@@ -101,13 +97,13 @@ const LoginMain = {
        },
     }).done(function(response){
       // console.log("response",response);
-      console.log("artist response 1",response.items[0].id);
+      // console.log("artist response 1",response.items[0].id);
       let artistID1 = response.items[0].id;
-      console.log("artist response 2",response.items[1].id);
+      // console.log("artist response 2",response.items[1].id);
       let artistID2 = response.items[1].id;
-      console.log("artist response 3",response.items[2].id);
+      // console.log("artist response 3",response.items[2].id);
       let artistID3 = response.items[2].id;
-      artistString = artistID1 + "," + artistID2;
+      // artistString = artistID1 + "," + artistID2;
 
       let userArtistData = {
         user_id: localStorage.spotifyUserID,
@@ -118,10 +114,8 @@ const LoginMain = {
 
       ajaxHelpers.updateUser(userArtistData)
       .then(function(response){
-        console.log("response",response);
+        // console.log("response",response);
       });
-
-
 
 
     }).fail(function(response){
@@ -136,40 +130,32 @@ const LoginMain = {
        'Authorization': 'Bearer ' + localStorage.accessToken
        },
     }).done(function(response){
-      console.log("response",response);
-      console.log("track response 1",response.items[0].id);
+      // console.log("response",response);
+      // console.log("track response 1",response.items[0].id);
       let trackID1 = response.items[0].id;
-      console.log("track response 2",response.items[1].id);
+      // console.log("track response 2",response.items[1].id);
       let trackID2 = response.items[1].id;
-      trackString = trackID1 + "," + trackID2;
+      // trackString = trackID1 + "," + trackID2;
       let trackID3 = response.items[2].id;
-      console.log("track response 3",response.items[2].id);
+      // console.log("track response 3",response.items[2].id);
 
-
-      let userTopSongs = {
-        songs: [],
+      let userSongData = {
+        user_id: localStorage.spotifyUserID,
+        song_one: trackID1,
+        song_two: trackID2,
+        song_three: trackID3
       };
-      for (var i = 0; i < response.items.length; i++){
-        userTopSongs.songs[i] = {
-          songName: response.items[i].name,
-          songID: response.items[i].id,
-          artistName: [],
-        };
-        for (var j = 0; j < response.items[i].artists.length; j++){
-          userTopSongs.songs[i].artistName.push(response.items[i].artists[j].name);
-        }
-      };
-      console.log("userTopSongs",userTopSongs);
 
+      ajaxHelpers.updateUser(userSongData)
+      .then(function(response){
+        console.log("response",response);
+      });
 
     }).fail(function(response){
       console.log("it failed");
       console.log(response);
     });
 
-    // RecommendFxns.ajaxFxns(trackString,artistString);
-    //this will need to be changed later
-    // if length of array is less than 10(?), run this function and push to array and set state
   },
 };
 

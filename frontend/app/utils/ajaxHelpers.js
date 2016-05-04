@@ -13,8 +13,8 @@ const helpers = {
     return axios.post('http://localhost:3000/songs.json', user);
   },
 
-  addJoin: function(join){
-    return axios.post('http://localhost:3000/songs.json', join);
+  addUserSong: function(selectionInfo){
+    return axios.post('http://localhost:3000/songs_users.json', selectionInfo);
   },
 
 

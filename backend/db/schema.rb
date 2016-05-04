@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20160504190943) do
 
   add_index "songs", ["song_id"], name: "index_songs_on_song_id", unique: true, using: :btree
 
-  create_table "songs_users", id: false, force: :cascade do |t|
-    t.integer  "user_id",                null: false
-    t.integer  "song_id",                null: false
+  create_table "songs_users", force: :cascade do |t|
+    t.string   "user_id"
+    t.string   "song_id"
     t.boolean  "selected"
     t.datetime "date_added_to_playlist"
     t.string   "playlist_added_to"

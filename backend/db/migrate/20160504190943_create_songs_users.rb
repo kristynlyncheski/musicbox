@@ -2,8 +2,10 @@ class CreateSongsUsers < ActiveRecord::Migration
   def change
     create_join_table :users, :songs do |t|
 
-      # t.index :userId
-      # t.index :songId
+      t.primary_key :id
+
+      t.string :user_id
+      t.string :song_id
       t.boolean :selected
       # t.boolean :added_to_playlist
       t.datetime :date_added_to_playlist

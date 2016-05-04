@@ -12,45 +12,42 @@ const RecComp = React.createClass({
     };
   },
   view: function(){
-    if (this.state.view == 'track-main'){
+    if (this.props.view == 'track-main'){
       return this.showTrack();
-    } else if (this.state.view == 'track-details'){
+    } else if (this.props.view == 'track-details'){
       return this.showDetails();
     } else {
       return
     };
   },
-  showTrackFxn: function(){
-    console.log("up arrow clicked")
-    this.setState({
-      view: 'track-main'
-    });
-  },
+  // showTrackFxn: function(){
+  //   console.log("up arrow clicked")
+  //   this.setState({
+  //     view: 'track-main'
+  //   });
+  // },
   showTrack: function(){
     return(
       <div>
         <RecommendedCard tracks={this.props.tracks} />
-        <DownArrow onClick={this.showDetailsFxn}/>
+        <DownArrow onClick={this.props.showDetailsFxn}/>
       </div>
     )
   },
-  showDetailsFxn: function(){
-    console.log("downarrow clicked")
-    this.setState({
-      view: 'track-details'
-    });
-  },
+  // showDetailsFxn: function(){
+  //   console.log("downarrow clicked")
+  //   this.setState({
+  //     view: 'track-details'
+  //   });
+  // },
   showDetails: function(){
     return(
       <div>
-        <UpArrow onClick={this.showTrackFxn}/>
+        <UpArrow onClick={this.props.showTrackFxn}/>
         <DetailsContainer tracks={this.props.tracks} />
       </div>
     )
   },
-  // componentDidMount: function(){
-  //   console.log(this.state.view);
-  // },
   render: function(){
     return(
       <div>

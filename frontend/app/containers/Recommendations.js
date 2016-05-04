@@ -2,8 +2,8 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 // import LoginMain from '../utils/LoginMain';
-// import RecComp from '../components/RecComp';
-import RecommendedCard from '../components/RecommendedCard';
+import RecComp from '../components/RecComp';
+// import RecommendedCard from '../components/RecommendedCard';
 // import DetailsContainer from './DetailsContainer';
 import ajaxHelpers from '../utils/ajaxHelpers';
 
@@ -12,6 +12,7 @@ import ajaxHelpers from '../utils/ajaxHelpers';
 const Recommendations = React.createClass({
   getInitialState: function(){
     return{
+      view: 'track-main',
       recommendedSongs: [
         {
           song_title: "",
@@ -78,12 +79,31 @@ const Recommendations = React.createClass({
   componentWillMount: function(){
     {this.recommendAjax()}
   },
-
+  showDetailsFxn: function(){
+    console.log("downarrow clicked")
+    this.setState({
+      view: 'track-details'
+    });
+  },
+  showTrackFxn: function(){
+    console.log("up arrow clicked")
+    this.setState({
+      view: 'track-main'
+    });
+  },
   handleSave: function(status){
+    this.setState({
+      view:'track-main'
+    });
     this.songAjaxFxn(true);
+    this.setSelectedFxn(true);
   },
   handleSkip: function(){
+    this.setState({
+      view:'track-main'
+    });
     this.songAjaxFxn(false);
+    this.setSelectedFxn(false);
   },
   songAjaxFxn: function(status){
     let tracklist = this.state.recommendedSongs;
@@ -129,6 +149,20 @@ const Recommendations = React.createClass({
       // });
     });
   },
+  setSelectedFxn: function(status){
+    let track = this.state.recommendedSongs[0];
+    // console.log("track",track);
+    let selectedInfo = {
+      song_id: track.song_id,
+      user_id: localStorage.spotifyUserID,
+      selected: status
+    };
+
+    ajaxHelpers.addUserSong(selectedInfo)
+    .then(function(response){
+      console.log(response);
+    });
+  },
   render: function(){
     return(
       <div className="main-container">
@@ -136,8 +170,11 @@ const Recommendations = React.createClass({
           parentComponent="recommendations"
           showSongs={this.showSongs}
          />
-       <RecommendedCard
+       <RecComp
            tracks={this.state.recommendedSongs}
+           view={this.state.view}
+           showDetailsFxn={this.showDetailsFxn}
+           showTrackFxn={this.showTrackFxn}
          />
         <Footer
           parentComponent="recommendations"
