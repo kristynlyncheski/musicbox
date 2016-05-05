@@ -9,6 +9,10 @@ const helpers = {
     return axios.put('http://localhost:3000/users/' + user.user_id + '.json', user);
   },
 
+  getUserTopLists: function(user){
+    return axios.get('http://localhost:3000/users/' + user.user_id + '.json', user);
+  },
+
   addSong: function(user){
     return axios.post('http://localhost:3000/songs.json', user);
   },

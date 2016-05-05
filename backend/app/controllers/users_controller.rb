@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
+    # @users = User.find_by(user_id: params[:id])
+    @users = User.where(user_id: params[:id])
+    # @users = User.where("user_id = ?", params[:id])
   end
 
   def new

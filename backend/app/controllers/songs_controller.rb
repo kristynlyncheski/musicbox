@@ -17,7 +17,7 @@ class SongsController < ApplicationController
   #http://stackoverflow.com/questions/9779706/how-to-add-parameter-to-index-action-method/18448770#18448770
 
   def show
-    @songs = Song.find(params[:id])
+    @songs = Song.find(params[:song_id])
   end
 
   def create

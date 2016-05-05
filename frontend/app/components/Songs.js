@@ -11,9 +11,10 @@ const Songs = React.createClass({
         </div>
       )
     });
+    let savedSongsReverse = savedSongs.reverse()
     return(
       <div>
-        {savedSongs}
+        {savedSongsReverse}
       </div>
     )
   }
