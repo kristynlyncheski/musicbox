@@ -76,7 +76,7 @@ const Recommendations = React.createClass({
     console.log("this.state.recommendedSongs",this.state.recommendedSongs);
 
   },
-  componentWillMount: function(){
+  componentDidMount: function(){
     {this.recommendAjax()}
   },
   showDetailsFxn: function(){
@@ -107,14 +107,16 @@ const Recommendations = React.createClass({
   },
   songAjaxFxn: function(status){
     let tracklist = this.state.recommendedSongs;
-    tracklist.shift();
-    console.log(tracklist);
-    this.setState({
-      recommendedSongs:tracklist
-    });
+    // tracklist.shift();
+    // console.log(tracklist);
+    // this.setState({
+    //   recommendedSongs:tracklist
+    // });
     if (this.state.recommendedSongs.length < 1){
       this.recommendAjax();
     };
+
+    let that = this;
 
 
     let track = this.state.recommendedSongs[0];
@@ -131,22 +133,15 @@ const Recommendations = React.createClass({
 
     // console.log("songInfo",songInfo);
 
-    let songUserInfo = {
-      song_id: track.song_id,
-      user_id: localStorage.spotifyUserID,
-      selected: status,
-    };
-
-    // console.log("songUserInfo",songUserInfo);
-
 
     ajaxHelpers.addSong(songInfo)
     .then(function(response){
       console.log(response);
-      // ajaxHelpers.addJoin(songUserInfo)
-      // .then(function(response){
-      //   console.log(response);
-      // });
+      tracklist.shift();
+      console.log(tracklist);
+      that.setState({
+        recommendedSongs:tracklist
+      });
     });
   },
   setSelectedFxn: function(status){

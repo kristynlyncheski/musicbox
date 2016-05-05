@@ -1,5 +1,5 @@
 import React from 'react';
-require('../styles/Styles.css');
+var styles = require('../styles/Styles.css');
 import Header from '../containers/Header';
 import Footer from '../containers/Footer';
 

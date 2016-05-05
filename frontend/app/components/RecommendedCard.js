@@ -16,8 +16,8 @@ const RecommendedCard = React.createClass({
           <div className="rec-img">
             <img src={track.img} />
           </div>
-          <p>{track.song_title}</p>
-          <p>{track.artist_name.toString().replace(",",", ")}</p>
+          <h3 className="song-title">{track.song_title}</h3>
+          <p className="artist-name">{track.artist_name.toString().replace(",",", ")}</p>
         </div>
       )
     });

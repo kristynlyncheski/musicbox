@@ -7,7 +7,7 @@ import {Button, Icon} from 'react-materialize';
 function MusicBtn(props){
   return(
     <Link to="/recommendations">
-      <Icon>music_note</Icon>
+      <Icon>headset</Icon>
     </Link>
   )
 };

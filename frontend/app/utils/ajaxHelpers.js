@@ -17,6 +17,10 @@ const helpers = {
     return axios.post('http://localhost:3000/songs_users.json', selectionInfo);
   },
 
+  getSavedSongs: function(user){
+    return axios.get('http://localhost:3000/songs/saved/' + user.user_id + '.json');
+  },
+
 
 }
 

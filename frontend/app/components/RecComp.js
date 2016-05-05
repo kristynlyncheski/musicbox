@@ -50,7 +50,7 @@ const RecComp = React.createClass({
   },
   render: function(){
     return(
-      <div>
+      <div className="inner-container">
         {this.view()}
       </div>
     )

@@ -38,7 +38,7 @@ const Header = React.createClass({
   },
   render: function(){
     return(
-      <div>
+      <div className="main-footer-container">
         {this.handleFooter()}
       </div>
     )

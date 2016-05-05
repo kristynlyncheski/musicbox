@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   resources :users
+
   resources :songs
+  get "/songs/saved/:user_id", to: "songs#getsaved"
+
   resources :songs_users
 
   # The priority is based upon order of creation: first created -> highest priority.
