@@ -15,6 +15,7 @@ const SongsContainer = React.createClass({
   },
   componentDidMount: function(){
     this.getSavedAjaxFxn();
+    this.getUserPlaylists();
   },
   getSavedAjaxFxn: function(){
 
@@ -34,6 +35,17 @@ const SongsContainer = React.createClass({
       });
     });
 
+  },
+  getUserPlaylists: function(){
+
+    $.ajax({
+      url: "https://api.spotify.com/v1/users/" + localStorage.spotifyUserID + "/playlists?limit=50",
+      headers: {
+       'Authorization': 'Bearer ' + localStorage.accessToken
+       },
+    }).done(function(response){
+      console.log("getUserPlaylists response",response);
+    });
   },
   render: function(){
     return(
