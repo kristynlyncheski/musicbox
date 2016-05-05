@@ -8,6 +8,10 @@ body {
   background:#030027;
 }
 
+select {
+  /*display:block;*/
+}
+
 .container {
   width:100% !important;
   height:100vh !important;

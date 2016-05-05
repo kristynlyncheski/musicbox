@@ -24,7 +24,7 @@ const SettingsContainer = React.createClass({
 
     let that = this;
 
-    ajaxHelpers.getUserTopLists(user)
+    ajaxHelpers.getUserInfo(user)
     .then(function(response){
       // console.log(response);
       that.setState({

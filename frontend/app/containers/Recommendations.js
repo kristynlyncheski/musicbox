@@ -12,6 +12,7 @@ import ajaxHelpers from '../utils/ajaxHelpers';
 const Recommendations = React.createClass({
   getInitialState: function(){
     return{
+      userInfo: {},
       view: 'track-main',
       recommendedSongs: [
         {
@@ -26,11 +27,29 @@ const Recommendations = React.createClass({
       ],
     };
   },
-  recommendAjax: function(){
+  callForUserInfo:function(){
+    let user = {
+      user_id: localStorage.spotifyUserID
+    };
+
+    let that = this;
+
+    ajaxHelpers.getUserInfo(user)
+    .then(function(response){
+      // console.log(response);
+      that.setState({
+        userInfo: response.data.users[0]
+      });
+      that.recommendAjax(that.state.userInfo);
+    });
+  },
+  recommendAjax: function(userInfo){
     //these need to be parameters in fxn(tracks,artists)
 
-    let tracks = "2ZyuwVvV6Z3XJaXIFbspeE,0H04yVa3DJxoXbLBpAb7iV";
-    let artists = "1uNFoZAHBGtllmzznpCI3s,2kucQ9jQwuD8jWdtR9Ef38";
+    let tracks = userInfo.song_one + "," + userInfo.song_two + "," + userInfo.song_three;
+    let artists = userInfo.artist_one + "," + userInfo.artist_two;
+
+    // console.log(tracks,artists);
 
     let that = this;
 
@@ -77,7 +96,7 @@ const Recommendations = React.createClass({
 
   },
   componentDidMount: function(){
-    {this.recommendAjax()}
+    {this.callForUserInfo()}
   },
   showDetailsFxn: function(){
     console.log("downarrow clicked")

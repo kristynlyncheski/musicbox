@@ -3,7 +3,7 @@ var React = require('react');
 var Router = require('react-router');
 import ajaxHelpers from './ajaxHelpers';
 
-const SCOPES = "user-top-read playlist-read-collaborative playlist-read-private"
+const SCOPES = "user-top-read playlist-read-collaborative playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private"
 
 const LoginMain = {
   contextTypes: {

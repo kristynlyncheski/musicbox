@@ -29,15 +29,15 @@ class SongsUsersController < ApplicationController
   end
 
   def update
-    @songs_users = User.find(params[:user_id])
+    @songs_users = User.where(user_id: params[:user_id], song_id: params[:song_id])
+
+    # change the code below to update the date and playlist added to
 
     if @song_users.update_attributes( selected: params[:selected])
       render 'show', formats: [:json], handlers: [:jbuilder], status: 201
     else
       render json: {error: "Song User Join could not be created."}, status: 422
     end
-
-
   end
 
 end

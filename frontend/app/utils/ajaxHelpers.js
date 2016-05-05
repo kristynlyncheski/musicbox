@@ -9,7 +9,7 @@ const helpers = {
     return axios.put('http://localhost:3000/users/' + user.user_id + '.json', user);
   },
 
-  getUserTopLists: function(user){
+  getUserInfo: function(user){
     return axios.get('http://localhost:3000/users/' + user.user_id + '.json', user);
   },
 
@@ -19,6 +19,10 @@ const helpers = {
 
   addUserSong: function(selectionInfo){
     return axios.post('http://localhost:3000/songs_users.json', selectionInfo);
+  },
+
+  updateUserSong: function(data){
+    return axios.put('http://localhost:3000/songs_users/'+ data.user_id + "/" + data.song_id + ".json",data);
   },
 
   getSavedSongs: function(user){
