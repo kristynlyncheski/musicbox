@@ -423,7 +423,7 @@ h4.saved-song-title {
 .dropdown-menu {
   min-width:250px;
   /*right: -15px;*/
-  overflow-x:hidden;
+  overflow:hidden;
   /*z-index: 9999;*/
 }
 
