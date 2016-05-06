@@ -7,7 +7,6 @@ import Songs from '../components/Songs';
 import ajaxHelpers from '../utils/ajaxHelpers';
 import axios from 'axios';
 
-
 const SongsContainer = React.createClass({
   getInitialState: function(){
     return{
@@ -30,12 +29,20 @@ const SongsContainer = React.createClass({
 
     ajaxHelpers.getSavedSongs(params)
     .then(function(response){
-      console.log(response);
+      console.log("getSavedSongs",response);
 
       let songs = response.data.songs;
 
+      // if (songs.length == 0){
+      //   songs = [
+      //     {
+      //       artist_name:[""]
+      //     }
+      //   ]
+      // }
+
       console.log("songs",songs)
-      songs[0]["artist_name"] = [""];
+      // songs[0]["artist_name"] = [""];
       console.log("songs",songs)
 
       that.setState({
@@ -61,7 +68,7 @@ const SongsContainer = React.createClass({
         if (playlists[i].owner.id == localStorage.spotifyUserID){
           let playlistInfo = {
             playlist_id: playlists[i].id,
-              playlist_name: playlists[i].name
+            playlist_name: playlists[i].name
           };
           userPlaylistInfo.push(playlistInfo);
           that.setState({
@@ -73,22 +80,38 @@ const SongsContainer = React.createClass({
     });
   },
   handlePlaylistAdd: function(eventKey,e){
-    let playlist_id = eventKey[0];
-    let url = "https://api.spotify.com/v1/users/126006237/playlists/13weaiJbTNDaD4NFSVyGox/tracks?uris=spotify%3Atrack%3A0bPiq3JmsZErLIkhVqajp9";
-    axios.post(url, {
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.accessToken,
-        'Content-Type': 'application/json'
-        'Accept': 'application/json'
-      }
-    })
-    .then(function (response) {
-      console.log("response:", response.data);
 
-      
+    let playlist_id = eventKey[0];
+    let song_id = eventKey[1];
+    let playlist_name = eventKey[2]
+
+    let url = "https://api.spotify.com/v1/users/" + localStorage.spotifyUserID + "/playlists/" + playlist_id + "/tracks?uris=" + encodeURIComponent("spotify:track:" + song_id);
+
+    let that = this;
+
+    $.ajax({
+      method: 'post',
+      url: url,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.accessToken,
+        'Content-Type':'application/json'
+       }
     })
-    .catch(function (response) {
-      console.log('There was an error', response);
+    .done(function(response) {
+      console.log("response:", response);
+
+      let data = {
+        user_id: localStorage.spotifyUserID,
+        song_id: song_id,
+        playlist_added_to: playlist_name,
+      };
+
+      ajaxHelpers.updateUserSong(data)
+      .then(function(response){
+        // console.log("response",response);
+        that.getSavedAjaxFxn();
+      });
     });
   },
 

@@ -22,7 +22,7 @@ const helpers = {
   },
 
   updateUserSong: function(data){
-    return axios.put('http://localhost:3000/songs_users/'+ data.user_id + "/" + data.song_id + ".json",data);
+    return axios.put('http://localhost:3000/songs_users/added/' + data.user_id + '/' + data.song_id + ".json", data);
   },
 
   getSavedSongs: function(user){

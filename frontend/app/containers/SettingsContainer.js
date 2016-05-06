@@ -4,6 +4,7 @@ import Footer from '../containers/Footer';
 import Settings from '../components/Settings';
 // import LoginMain from '../utils/LoginMain.js';
 import ajaxHelpers from '../utils/ajaxHelpers';
+import {Button} from 'react-materialize';
 
 const SettingsContainer = React.createClass({
   getInitialState: function(){
@@ -99,15 +100,16 @@ const SettingsContainer = React.createClass({
     return(
       <div className="main-container">
         <Header parentComponent="settings" />
-          <div className="inner-containers">
-            <h3>{this.state.userInfo.display_name}</h3>
-            <p className="user-img"><img src={this.state.userInfo.img} /></p>
-            <Settings
-              userInfo={this.state.userInfo}
-              topTracks={this.state.topTracks}
-              topArtists={this.state.topArtists}
-            />
-          </div>
+        <div className="inner-containers">
+          <h3>{this.state.userInfo.display_name}</h3>
+          <p className="user-img"><img src={this.state.userInfo.img} /></p>
+          <Settings
+            userInfo={this.state.userInfo}
+            topTracks={this.state.topTracks}
+            topArtists={this.state.topArtists}
+          />
+        <Button waves='light' className="history-btn">See Your History</Button>
+        </div>
         <Footer parentComponent="settings" />
       </div>
     )

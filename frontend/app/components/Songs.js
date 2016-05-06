@@ -7,7 +7,7 @@ const DropdownComp = React.createClass({
   render: function(){
     let playlists = this.props.playlists.map((playlist,index) => {
       return(
-        <MenuItem key={index} eventKey={[playlist.playlist_id,this.props.songId]}>{playlist.playlist_name}</MenuItem>
+        <MenuItem key={index} eventKey={[playlist.playlist_id,this.props.songId,playlist.playlist_name]}>{playlist.playlist_name}</MenuItem>
       )
     });
     return(
@@ -25,6 +25,7 @@ const DropdownComp = React.createClass({
 
 const Songs = React.createClass({
   render: function(){
+    // console.log("saved",this.props.savedSongs);
     // let playlists = this.props.playlists.map((playlist,index) => {
     //   return(
     //     <MenuItem key={index} eventKey={playlist.playlist_id}>{playlist.playlist_name}</MenuItem>
@@ -32,24 +33,26 @@ const Songs = React.createClass({
     // });
     let savedSongs = this.props.savedSongs.map((song,index) => {
       return (
-        <div key={index}>
-          <div >
-            <h3 className="song-title">{song.song_title}</h3>
-            <p className="artist-name">{song.artist_name.toString().replace(",",", ")}</p>
+        <div className="songs-collection" key={index}>
+          <div className="saved-details">
+            <h4 className="saved-song-title">{song.song_title}</h4>
+            <p className="saved-artist-name">{song.artist_name}</p>
           </div>
-          <DropdownComp
-            playlists={this.props.playlists}
-            songId={song.song_id}
-            index={index}
-            onSelect={this.props.handlePlaylistAdd}
-          />
-
+          <div className="playlist-dropdown">
+            <DropdownComp
+              playlists={this.props.playlists}
+              songId={song.song_id}
+              index={index}
+              onSelect={this.props.handlePlaylistAdd}
+            />
+          </div>
         </div>
       );
     });
     let savedSongsReverse = savedSongs.reverse();
+
     return(
-      <div>
+      <div className="saved-songs-container">
         {savedSongsReverse}
       </div>
     )

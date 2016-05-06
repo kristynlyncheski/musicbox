@@ -23,8 +23,12 @@ const Home = React.createClass({
   render: function(){
     return(
       <div className="main-container">
-        <h1>Welcome to TBD</h1>
-        <p>If you're not redirected, <span onClick={LoginMain.getAccessToken}>click here</span></p>
+        <div className="home-container">
+          <div class="home-container-inner">
+            <h1>musicbox</h1>
+            <p>If you're not redirected, <span onClick={LoginMain.getAccessToken}>click here</span>.</p>
+          </div>
+        </div>
       </div>
     )
   }

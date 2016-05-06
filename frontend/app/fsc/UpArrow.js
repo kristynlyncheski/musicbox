@@ -6,8 +6,9 @@ function UpArrow(props){
   return(
     <FontAwesome
       name='angle-up'
-      size='4x'
+      size='5x'
       onClick={props.onClick}
+      className="up-arrow"
     />
   )
 };

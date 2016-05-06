@@ -20,13 +20,13 @@ const Settings = React.createClass({
     });
     console.log("tracks",tracks)
     return(
-      <div>
-        <div className="user-top-list">
-          <h3>Top Artists</h3>
+      <div className="user-top-list-container">
+        <div className="user-top-list text-right">
+          <h4 className="top">Top Artists</h4>
           <div>{artists}</div>
         </div>
         <div className="user-top-list">
-          <h3>Top Tracks</h3>
+          <h4 className="top">Top Tracks</h4>
           <div>{tracks}</div>
         </div>
       </div>

@@ -4,11 +4,12 @@ var FontAwesome = require('react-fontawesome');
 
 function DownArrow(props){
   return(
-    <div className="down-arrow">
+    <div>
       <FontAwesome
         name='angle-down'
-        size='4x'
+        size='5x'
         onClick={props.onClick}
+        className="down-arrow"
       />
     </div>
   )

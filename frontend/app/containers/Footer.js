@@ -14,10 +14,10 @@ const Header = React.createClass({
       return(
         <div className="footer-container">
           <div>
-            <Button floating large className='red' waves='light' icon='close' onClick={this.props.handleSkip}/>
+            <Button floating large className='salmon' waves='light' icon='close' onClick={this.props.handleSkip}/>
           </div>
           <div>
-            <Button floating large className='red' waves='light' icon='add' onClick={this.props.handleSave}/>
+            <Button floating large className='salmon' waves='light' icon='add' onClick={this.props.handleSave}/>
           </div>
         </div>
       );
@@ -25,10 +25,10 @@ const Header = React.createClass({
       return(
         <div className="footer-container">
           <div>
-            <Button floating large className='red' waves='light' icon='close' onClick={this.props.handleSkip}/>
+            <Button floating large className='salmon' waves='light' icon='close' onClick={this.props.handleSkip}/>
           </div>
           <div>
-            <Button floating large className='red' waves='light' icon='close' onClick={this.props.handleSave}/>
+            <Button floating large className='salmon' waves='light' icon='close' onClick={this.props.handleSave}/>
           </div>
         </div>
       );

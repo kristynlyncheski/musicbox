@@ -3,6 +3,7 @@ import Header from '../containers/Header';
 import Footer from '../containers/Footer';
 import UpArrow from '../fsc/UpArrow';
 // import LoginMain from '../utils/LoginMain.js';
+import {Button, Icon} from 'react-materialize';
 
 const DetailsContainer = React.createClass({
   getInitialState: function(){
@@ -21,13 +22,24 @@ const DetailsContainer = React.createClass({
 
       return (
         <div key={index}>
-          <div className="details-img">
-            <img src={track.img} />
+          <div className="track-details">
+            <div className="details-img">
+              <img src={track.img} />
+            </div>
+            <div className="details-info">
+              <p className="details-song-title">{track.song_title}</p>
+              <p className="details-artist-name">{track.artist_name.toString().replace(",",", ")}</p>
+              <p className="details-album-name">{track.album}</p>
+              <div className="play-btn">
+                <Icon className="play-btn-icon">play_circle_filled</Icon>
+                <span>Click to listen!</span>
+
+              </div>
+            </div>
           </div>
-          <p>{track.artist_name.toString().replace(",",", ")}</p>
-          <p>{track.album}</p>
-          <div className="play-btn-img">
-            <img src="https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_3-512.png" />
+          <hr />
+          <div className="event-details">
+            <h3>Events To Come!</h3>
           </div>
         </div>
       )

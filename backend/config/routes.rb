@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/songs/saved/:user_id", to: "songs#getsaved"
 
   resources :songs_users
+  put "/songs_users/added/:user_id/:song_id", to: "songs_users#addedPlaylist"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
