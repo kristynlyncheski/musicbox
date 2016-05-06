@@ -7,7 +7,12 @@ import {Button, Icon} from 'react-materialize';
 function MusicBtn(props){
   return(
     <Link to="/recommendations">
-      <Icon>headset</Icon>
+      <div className="small-logo">
+        <span className="underline">
+          music
+        </span><br />
+        box
+      </div>
     </Link>
   )
 };
@@ -17,3 +22,5 @@ export default MusicBtn;
 //   name='music'
 //   size='3x'
 // />
+
+// <Icon>headset</Icon>

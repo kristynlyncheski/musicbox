@@ -1,6 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router';
 var FontAwesome = require('react-fontawesome');
+import {Icon} from 'react-materialize';
+
+
+// fix the click of the arrow -- because z-index is over footer
 
 function DownArrow(props){
   return(

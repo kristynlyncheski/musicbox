@@ -18,9 +18,32 @@ a {
   color:#3985C8;
 }
 
+a:hover {
+  text-decoration:none;
+}
+
+.small-logo {
+  font-size: 30px;
+  /*color: #23527c;*/
+  line-height: 26px;
+  letter-spacing: -2px;
+  font-weight:700;
+}
+
+a.small-logo {
+  text-decoration: none;
+}
+
+.small-logo:hover {
+  color:#23527c;
+  text-decoration: none;
+}
+
+
+/*https://css-tricks.com/snippets/css/transparent-background-images/*/
 .container {
   width:100% !important;
-  height:99vh !important;
+  height:100vh !important;
   display: block;
   position: relative;
   display: flex;
@@ -29,10 +52,11 @@ a {
 
 .container::after {
   content: "";
-  background: url('http://theundercovers.ie/wp-content/uploads/2015/01/iStock_000017312649Large.jpg');
-  background-repeat: no-repeat;
+  /*background: url('http://theundercovers.ie/wp-content/uploads/2015/01/iStock_000017312649Large.jpg');*/
+  /*background-image: url('app/assets/background-img.jpg');*/
+  /*background-repeat: no-repeat;
   background-size: cover;
-  background-position:bottom;
+  background-position:bottom;*/
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -63,7 +87,9 @@ h3 {
 
 
 .main-container {
-  /*overflow:scroll;*/
+  overflow: hidden;
+  /*overflow-x: hidden;*/
+  /*overflow-y:scroll;*/
 
   background:#f2f3d9;
   border-radius:3px;
@@ -79,7 +105,7 @@ h3 {
   height:95vh;
 
   /*box-shadow: 10px 15px 10px 5px #404a71;*/
-  /*box-shadow: 10px 10px 15px 5px #404a71;*/
+  box-shadow: 10px 10px 15px 5px #404a71;
   margin:0 auto;
   position:relative;
   /*display:flex;*/
@@ -142,23 +168,50 @@ h3 {
   height: 100%;
   text-align: center;
   padding: 30px 10px;
+  /*background:#23527c;*/
+  /*background: url('http://www.iconsdb.com/icons/preview/black/headphones-3-xxl.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position:center;*/
+  background: rgba(3,0,39,1);
+  background: -moz-linear-gradient(top, rgba(3,0,39,1) 0%, rgba(35,82,124,1) 76%, rgba(35,82,124,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(3,0,39,1)), color-stop(76%, rgba(35,82,124,1)), color-stop(100%, rgba(35,82,124,1)));
+  background: -webkit-linear-gradient(top, rgba(3,0,39,1) 0%, rgba(35,82,124,1) 76%, rgba(35,82,124,1) 100%);
+  background: -o-linear-gradient(top, rgba(3,0,39,1) 0%, rgba(35,82,124,1) 76%, rgba(35,82,124,1) 100%);
+  background: -ms-linear-gradient(top, rgba(3,0,39,1) 0%, rgba(35,82,124,1) 76%, rgba(35,82,124,1) 100%);
+  background: linear-gradient(to bottom, rgba(3,0,39,1) 0%, rgba(35,82,124,1) 76%, rgba(35,82,124,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030027', endColorstr='#23527c', GradientType=0 );
+  /*http://www.cssmatic.com/gradient-generator*/
 }
+
+/*home-container::after {
+  opacity: .5
+}*/
 
 .home-container-inner {
 }
 
 .home-container h1 {
-  font-size:75px;
-  margin-bottom:10px;
+  font-size: 130px;
+  margin-bottom: 30px;
+  color: #f2f3d9;
+  line-height: 115px;
+  letter-spacing: -5px;
 }
 
 .home-container p {
-  color:#3985C8;
+  /*color:#3985C8;*/
+  color:#030027;
 }
 
 .home-container span {
   cursor: pointer;
 }
+
+.underline {
+  text-decoration:underline;
+}
+
 /* Recommendations */
 .rec-img {
   width:75%;
@@ -296,7 +349,7 @@ h4.top {
 }
 
 .songs-collection {
-  /*width:85%;*/
+  width:98%;
   /*margin:0 auto;*/
   display:flex;
   flex-flow:row nowrap;
@@ -307,7 +360,7 @@ h4.top {
 }
 
 .saved-details {
-  width:90%;
+  width:80%;
 }
 
 h4.saved-song-title {
@@ -321,7 +374,8 @@ h4.saved-song-title {
 }
 
 .playlist-dropdown {
-  width:10%;
+  width:20%;
+  margin-top:15px;
 }
 
 
@@ -362,9 +416,15 @@ h4.saved-song-title {
   font-weight:bold;
 }
 
+.btn i {
+  font-size:26px;
+}
+
 .dropdown-menu {
   min-width:250px;
-  right: -15px;
+  /*right: -15px;*/
+  overflow-x:hidden;
+  /*z-index: 9999;*/
 }
 
 hr {
@@ -372,4 +432,42 @@ hr {
   margin:20px auto;
   border:0;
   border-bottom:1px solid #030027;
+}
+
+/* Scroll */
+.scrollarea{
+  z-index:50;
+}
+
+.scrollbar-inside-content {
+  width:98%;
+}
+
+.scrollable-margin {
+  margin:10px 0;
+}
+
+.scrollable-margin .for-all-containers {
+  margin:0;
+}
+
+/* Fixing Dropdowns */
+
+a[role=menuitem] {
+  color:#262626;
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+  color: #262626;
+  background-color: #e8e8e8;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
 }
