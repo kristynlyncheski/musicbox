@@ -281,18 +281,24 @@ h3.song-title {
 .play-btn {
   margin: 15px 0 0 0;
   position:relative;
+  cursor:pointer;
+}
+
+.play-btn-div {
+  display:inline;
 }
 
 .play-btn-icon {
   font-size:40px;
   display:inline;
+  cursor:pointer;
 }
 
 .play-btn-icon:hover{
   color:#23527c;
 }
 
-.play-btn span {
+.play-btn .click-listen {
   position:absolute;
   top: 25%;
   margin-left:5px;

@@ -177,6 +177,10 @@ const Recommendations = React.createClass({
       console.log(response);
     });
   },
+  playPreview: function(){
+    console.log("this is clicked");
+
+  },
   render: function(){
     return(
       <div className="main-container">
@@ -189,6 +193,7 @@ const Recommendations = React.createClass({
            view={this.state.view}
            showDetailsFxn={this.showDetailsFxn}
            showTrackFxn={this.showTrackFxn}
+           play={this.playPreview}
          />
         <Footer
           parentComponent="recommendations"

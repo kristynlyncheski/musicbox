@@ -44,7 +44,10 @@ const RecComp = React.createClass({
     return(
       <div>
         <UpArrow onClick={this.props.showTrackFxn}/>
-        <DetailsContainer tracks={this.props.tracks} />
+        <DetailsContainer
+          tracks={this.props.tracks}
+          play={this.props.play}
+        />
       </div>
     )
   },

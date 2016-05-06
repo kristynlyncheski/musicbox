@@ -15,11 +15,11 @@ const DetailsContainer = React.createClass({
   componentDidMount: function(){
   },
   render: function(){
+
+    let that = this;
     let tracks = this.props.tracks.map((track,index) => {
 
       // add a preview url on click of play button
-
-
       return (
         <div key={index}>
           <div className="track-details">
@@ -30,9 +30,11 @@ const DetailsContainer = React.createClass({
               <p className="details-song-title">{track.song_title}</p>
               <p className="details-artist-name">{track.artist_name.toString().replace(",",", ")}</p>
               <p className="details-album-name">{track.album}</p>
-              <div className="play-btn">
-                <Icon className="play-btn-icon">play_circle_filled</Icon>
-                <span>Click to listen!</span>
+              <div className="play-btn" onClick={that.props.play}>
+                <div className="play-btn-div">
+                  <Icon className="play-btn-icon">play_circle_filled</Icon>
+                </div>
+                <div className="play-btn-div click-listen">Click to listen!</div>
 
               </div>
             </div>
