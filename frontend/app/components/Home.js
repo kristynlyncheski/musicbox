@@ -1,8 +1,3 @@
-//CHANGE TO A HOME SCREEN WITH A LOADING ICON
-//CHECK IF HAVE TOKEN
-//IF HAVE TOKEN, REDIRECT TO RECOMMENDATIONS SCREEN
-//HAVE A COUNTDOWN FOR REDIRECT?
-
 import React from 'react';
 import {Link} from 'react-router';
 import LoginMain from '../utils/LoginMain.js';

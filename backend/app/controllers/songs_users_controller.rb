@@ -5,6 +5,19 @@ class SongsUsersController < ApplicationController
     @songs_users = SongsUsers.all
   end
 
+  def gethistory
+    # @songs = Song.joins(:songs_users).where("song_id in (select song_id from songs_users where selected = true and date_added_to_playlist is not null and user_id = ? )", params[:user_id])
+
+    @songs_users = SongsUsers.joins("join songs on songs.song_id = songs_users.song_id").where("selected = true and date_added_to_playlist is not null and user_id = ?", params[:user_id]).order(date_added_to_playlist: :desc).limit(50)
+    #http://guides.rubyonrails.org/active_record_querying.html#ordering
+
+    render :json => @songs_users.to_json(:include => :songs)
+    #http://stackoverflow.com/questions/27612802/how-to-join-tables-resulting-in-json-with-rails-4
+
+
+
+  end
+
   def show
     @songs_users = SongsUsers.find(params[:id])
   end

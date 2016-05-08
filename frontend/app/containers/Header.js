@@ -18,9 +18,9 @@ const Header = React.createClass({
     } else if (this.props.parentComponent == "recommendations") {
       return(
         <div className="header-container">
-          <SettingsBtn />
+          <SettingsBtn pause={this.props.pause} />
           <Title />
-          <SavedBtn />
+          <SavedBtn pause={this.props.pause} />
         </div>
       );
     // } else if (this.props.parentComponent == "details") {

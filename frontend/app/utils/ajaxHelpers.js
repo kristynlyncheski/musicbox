@@ -29,6 +29,10 @@ const helpers = {
     return axios.get('http://localhost:3000/songs/saved/' + user.user_id + '.json');
   },
 
+  getHistory: function(user){
+    return axios.get('http://localhost:3000/songs_users/history/' + user.user_id + '.json');
+  },
+
 
 }
 

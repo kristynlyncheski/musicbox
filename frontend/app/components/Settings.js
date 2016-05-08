@@ -18,7 +18,7 @@ const Settings = React.createClass({
         </div>
       )
     });
-    console.log("tracks",tracks)
+    // console.log("tracks",tracks)
     return(
       <div className="user-top-list-container">
         <div className="user-top-list text-right">

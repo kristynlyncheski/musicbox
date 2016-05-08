@@ -8,7 +8,7 @@ import {Icon} from 'react-materialize';
 
 function DownArrow(props){
   return(
-    <div>
+    <div className="down-arrow-container">
       <FontAwesome
         name='angle-down'
         size='5x'

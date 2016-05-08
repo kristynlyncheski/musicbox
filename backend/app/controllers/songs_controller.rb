@@ -16,6 +16,15 @@ class SongsController < ApplicationController
   end
   #http://stackoverflow.com/questions/9779706/how-to-add-parameter-to-index-action-method/18448770#18448770
 
+  # def gethistory
+  #   # @songs = Song.joins(:songs_users).where("song_id in (select song_id from songs_users where selected = true and date_added_to_playlist is not null and user_id = ? )", params[:user_id])
+  #   @songs = Song.joins("join songs_users on songs.song_id = songs_users.song_id").where("selected = true and date_added_to_playlist is not null and user_id = ?", params[:user_id])
+  #
+  #   # puts @songs.first().date_added_to_playlist
+  #   render :json => @songs.to_json(:include => :songs_users)
+  #
+  # end
+
   def show
     @songs = Song.find(params[:song_id])
   end

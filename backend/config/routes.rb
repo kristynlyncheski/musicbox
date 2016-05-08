@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   resources :songs
   get "/songs/saved/:user_id", to: "songs#getsaved"
+  # get "/songs/history/:user_id", to: "songs#gethistory"
 
   resources :songs_users
   put "/songs_users/added/:user_id/:song_id", to: "songs_users#addedPlaylist"
+  get "/songs_users/history/:user_id", to: "songs_users#gethistory"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

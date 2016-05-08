@@ -6,7 +6,7 @@ import {Button, Icon} from 'react-materialize';
 
 function SettingsBtn(props){
   return(
-    <Link to="/settings">
+    <Link to="/settings" onClick={props.pause}>
       <Icon>person_pin</Icon>
     </Link>
   )

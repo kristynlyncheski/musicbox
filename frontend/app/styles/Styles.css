@@ -8,6 +8,10 @@
 body {
   background:#030027;
   color:#030027 !important;
+  background-image: url('/app/assets/background-img-overlay.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position:bottom;
 }
 
 select {
@@ -28,6 +32,7 @@ a:hover {
   line-height: 26px;
   letter-spacing: -2px;
   font-weight:700;
+  cursor: pointer;
 }
 
 a.small-logo {
@@ -231,6 +236,12 @@ h3.song-title {
   padding:5px 10px;
 }
 
+.down-arrow-container,
+.up-arrow-container {
+  width:45px;
+  margin:0 auto;
+}
+
 .down-arrow {
   margin:0 0 0 0;
   color:#3985C8;
@@ -312,6 +323,7 @@ h3.song-title {
   width:100%;
   margin:0 auto;
 }
+
 .user-img img {
   border-radius:100%;
   border:3px solid #e7caaf;
@@ -345,6 +357,18 @@ h4.top {
   color:#030027;
   margin:25px auto;
   display:block;
+  z-index:5;
+}
+
+.history-container {
+  position:absolute;
+  top:10%;
+  margin-top:10px;
+  text-align:center;
+  background:#f2f3d9;
+  z-index: 15;
+  height:100%;
+  display:none;
 }
 
 /* Saved Songs */
@@ -447,6 +471,7 @@ hr {
 
 .scrollbar-inside-content {
   width:98%;
+  min-height: 70vh;
 }
 
 .scrollable-margin {

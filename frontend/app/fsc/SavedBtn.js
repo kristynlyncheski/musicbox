@@ -5,7 +5,7 @@ import {Button, Icon} from 'react-materialize';
 
 function SavedBtn(props){
   return(
-    <Link to="/songs">
+    <Link to="/songs" onClick={props.pause}>
       <Icon>favorite</Icon>
     </Link>
   )

@@ -6,11 +6,11 @@ import UpArrow from "../fsc/UpArrow";
 
 
 const RecComp = React.createClass({
-  getInitialState:function(){
-    return{
-      view: 'track-main',
-    };
-  },
+  // getInitialState:function(){
+  //   return{
+  //     view: 'track-main',
+  //   };
+  // },
   view: function(){
     if (this.props.view == 'track-main'){
       return this.showTrack();

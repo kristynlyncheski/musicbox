@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../containers/Header';
 import Footer from '../containers/Footer';
 import Settings from '../components/Settings';
+import History from '../components/History';
 // import LoginMain from '../utils/LoginMain.js';
 import ajaxHelpers from '../utils/ajaxHelpers';
 import {Button} from 'react-materialize';
@@ -12,11 +13,15 @@ const SettingsContainer = React.createClass({
       parent: 'settings',
       userInfo: {},
       topTracks: [],
-      topArtists: []
+      topArtists: [],
+      view: 'user-info',
+      history: []
     };
   },
   componentDidMount: function(){
     this.getUserTops();
+    this.getHistoryAjaxFxn();
+
   },
   getUserTops: function(){
     let user = {
@@ -84,7 +89,7 @@ const SettingsContainer = React.createClass({
          'Authorization': 'Bearer ' + localStorage.accessToken
          },
       }).done(function(response){
-        console.log(response);
+        // console.log(response);
 
         let topArtistInfo = {
           name: response.name,
@@ -95,6 +100,44 @@ const SettingsContainer = React.createClass({
         });
       });
     };
+  },
+  showHistory: function(){
+    // console.log("showing history");
+    this.setState({
+      view: 'history'
+    });
+  },
+  hideHistory: function(){
+    let historyContainer = document.querySelector(".history-container");
+    historyContainer.style.display = "none";
+  },
+  getHistoryAjaxFxn: function(){
+
+    let params = {
+      user_id: localStorage.spotifyUserID,
+      selected: true,
+      playlist_added_to: ""
+    };
+
+    let that = this;
+
+    ajaxHelpers.getHistory(params)
+    .then(function(response){
+      console.log("getHistory",response);
+
+      let history = response.data;
+
+      console.log("history",history)
+
+      that.setState({
+        history: history,
+      });
+    });
+  },
+  setView: function(){
+    this.setState({
+      view:'user-info'
+    });
   },
   render: function(){
     return(
@@ -108,7 +151,13 @@ const SettingsContainer = React.createClass({
             topTracks={this.state.topTracks}
             topArtists={this.state.topArtists}
           />
-        <Button waves='light' className="history-btn">See Your History</Button>
+          <Button waves='light' className="history-btn" onClick={this.showHistory}>See Your History</Button>
+          <History
+            view={this.state.view}
+            hideHistory={this.setView}
+            historyDisplay={this.hideHistory}
+            history={this.state.history}
+           />
         </div>
         <Footer parentComponent="settings" />
       </div>

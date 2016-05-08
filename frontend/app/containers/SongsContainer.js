@@ -41,9 +41,9 @@ const SongsContainer = React.createClass({
       //   ]
       // }
 
-      console.log("songs",songs)
+      // console.log("songs",songs)
       // songs[0]["artist_name"] = [""];
-      console.log("songs",songs)
+      // console.log("songs",songs)
 
       that.setState({
         savedSongs: songs,

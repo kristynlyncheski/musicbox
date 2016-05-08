@@ -25,6 +25,7 @@ const Recommendations = React.createClass({
           artist_id: [],
         }
       ],
+      preview: ''
     };
   },
   callForUserInfo:function(){
@@ -109,6 +110,7 @@ const Recommendations = React.createClass({
     this.setState({
       view: 'track-main'
     });
+    this.pausePreview();
   },
   handleSave: function(status){
     this.setState({
@@ -116,6 +118,8 @@ const Recommendations = React.createClass({
     });
     this.songAjaxFxn(true);
     this.setSelectedFxn(true);
+    this.pausePreview();
+    this.pausePreview();
   },
   handleSkip: function(){
     this.setState({
@@ -123,6 +127,11 @@ const Recommendations = React.createClass({
     });
     this.songAjaxFxn(false);
     this.setSelectedFxn(false);
+    // console.log("preview state", this.state.preview)
+    if (this.state.preview){
+      // console.log("testing preview");
+      this.pausePreview();
+    };
   },
   songAjaxFxn: function(status){
     let tracklist = this.state.recommendedSongs;
@@ -177,9 +186,32 @@ const Recommendations = React.createClass({
       console.log(response);
     });
   },
-  playPreview: function(){
-    console.log("this is clicked");
+  setPreview: function(){
+    // console.log("this is clicked");
+    let audio = new Audio(this.state.recommendedSongs[0].preview);
 
+    // console.log(this.state.recommendedSongs[0].preview);
+    // console.log(this.state.recommendedSongs[0]);
+    this.setState({
+      preview: audio
+    },this.playPreview);
+
+  },
+  playPreview:function(){
+
+    console.log("play log", this.state.preview);
+
+    this.state.preview.play();
+    // audio.play();
+    //http://stackoverflow.com/questions/9419263/playing-audio-with-javascript
+
+  },
+  pausePreview: function(){
+    // console.log("this is clicked");
+    console.log("pause log", this.state.preview);
+    if (this.state.preview){
+      this.state.preview.pause();
+    }
   },
   render: function(){
     return(
@@ -187,13 +219,14 @@ const Recommendations = React.createClass({
         <Header
           parentComponent="recommendations"
           showSongs={this.showSongs}
+          pause={this.pausePreview}
          />
        <RecComp
            tracks={this.state.recommendedSongs}
            view={this.state.view}
            showDetailsFxn={this.showDetailsFxn}
            showTrackFxn={this.showTrackFxn}
-           play={this.playPreview}
+           play={this.setPreview}
          />
         <Footer
           parentComponent="recommendations"
